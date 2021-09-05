@@ -94,7 +94,7 @@ echo "i3" > ~/.xinitrc
 
 systemctl enable lightdm
 
-
+nmtui
 
 
 
