@@ -57,7 +57,7 @@ mv arch-chroot.sh /mnt
 sed -i 's|#Color|Color|' /etc/pacman.conf
 sed -i 's|#ParallelDownloads = 5|ParallelDownloads = 25|' /etc/pacman.conf
 
-pacstrap -i /mnt base base-devel bash-completion intel-ucode iucode-tool linux linux-firmware linux-headers nano dhcpcd neofetch
+pacstrap -i /mnt base base-devel bash-completion intel-ucode iucode-tool linux-zen linux-firmware linux-zen-headers nano dhcpcd neofetch
 
 
 genfstab -U /mnt >> /mnt/etc/fstab
