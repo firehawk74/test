@@ -85,16 +85,27 @@ systemctl enable fstrim.timer
 pacman -S --needed --nocofirm xorg xorg-xinit xorg-xrandr arandr
 #pacman -S --needed --noconfirm pavucontrol-qt pulseaudio 
 pacman -S --noconfirm xf86-video-intel mesa
-pacman -S --needed --noconfirm i3 lightdm lightdm-gtk-greeter
+
 #pacman -S --needed --nocofirm virtualbox-guest-utils xf86-video-vmware
 
-echo "i3" > ~/.xinitrc
+pacman -S --needed --noconfirm i3-gaps i3blocks i3lock i3status nano
 
-#systemctl enable vboxservice.service
+pacman -S  --needed --noconfirm firefox thunar konsole  
+pacman -S  --needed --noconfirm fakeroot nitrogen 
+
+echo exec i3 '\n' >> /etc/X11/xinit/xinitrc
+sed -i 's|twm &|#twm &|' /etc/X11/xinit/xinitrc
+sed -i 's|xclock|#xclock|' /etc/X11/xinit/xinitrc
+sed -i 's|exec xterm|#exec xterm|' /etc/X11/xinit/xinitrc
+sed -i 's|xterm|#xterm|g' /etc/X11/xinit/xinitrc
+sed -i 's|bindsym $mod+d exec --no-startup-id i3-dmenu-desktop|#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop|' .config/i3/config
 
 systemctl enable lightdm
 
-nmtui
+#systemctl enable vboxservice.service
+
+
+
 
 
 
